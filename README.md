@@ -33,6 +33,27 @@ To run tests in UI mode:
 npx playwright test --ui
 ```
 
+## Visual Testing
+This project includes visual testing capabilities using Playwright's built-in snapshot feature.
+
+### Taking Screenshots
+```bash
+npx playwright test --update-snapshots
+```
+
+### Visual Comparison
+The tests automatically compare the current state of UI components against their baseline screenshots. If there are visual differences, the test will:
+- Generate a diff image highlighting the changes
+- Save both the expected and actual screenshots
+- Fail the test with detailed information about the differences
+
+### Visual Test Examples
+```javascript
+// Example of a visual test
+await expect(page).toHaveScreenshot('homepage.png');
+await expect(component).toHaveScreenshot('button-state.png');
+```
+
 ## Test Reports
 View HTML test report:
 ```bash
